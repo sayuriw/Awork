@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-//using Awork.Data;
+using Awork.Data;
 
 namespace Awork
 {
@@ -28,6 +28,7 @@ namespace Awork
         {
             services.AddRazorPages();
             services.AddServerSideBlazor();
+            
             
         }
 

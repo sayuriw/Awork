@@ -1,5 +1,97 @@
 ﻿@page "/"
+@using System.ComponentModel.DataAnnotations
+@using Awork.Data
+
+
 
 <h1>Creditcard Code Challange</h1>
+
+
+
+<EditForm Model="@data" OnValidSubmit="@createData">
+    <DataAnnotationsValidator />
+
+
+    <p>
+        <label>
+            Card Number:
+            <MyInput placeholder="XXXX XXXX XXXX XXXX " @bind-Value="data.CardNumber" />
+        </label>
+        <ValidationMessage For="@(() => data.CardNumber)" />
+
+    </p>
+    <p>
+        <label>
+            Card Name:
+            <MyInput @bind-Value="data.CardName" />
+        </label>
+        <ValidationMessage For="@(() => data.CardName)" />
+    </p>
+    <div>
+        <MySelectInput @bind-Value="data.MonthValidity"
+                       ValidationFor="@(() => data.MonthValidity)"
+                       Label="Month:">
+
+            <option>Month</option>
+            @for (int i = 1; i <= 12; i++)
+            {
+                <option value="@i">@i</option>
+            }
+
+        </MySelectInput>
+    </div>
+    <div>
+        <MySelectInput @bind-Value="data.YearValidity"
+                       ValidationFor="@(() => data.YearValidity)"
+                       Label="Year:">
+
+            <option>Year</option>
+            @for (int i = 2020; i <= 2030; i++)
+            {
+                <option value="@i">@i</option>
+            }
+
+        </MySelectInput>
+    </div>
+    <p>
+        <label>
+            Cvv:
+            <MyInput placeholder="XXXX" @bind-Value="data.CvvNumber" />
+        </label>
+        <ValidationMessage For="@(() => data.CvvNumber)" />
+
+    </p>
+    <button type="submit">Send</button>
+
+    <p>@data.CardNumber</p>
+    <p>@data.CardName</p>
+    <p>@data.MonthValidity</p>
+    <p>
+        <label>Result:@CardInformation</label>
+    </p>
+
+</EditForm>
+
+
+
+
+
+
+
+@code {
+
+    private CardData data = new CardData();
+
+    public string CardInformation = "";
+
+    public void createData()
+    {
+        CardInformation = $"{data.CardNumber} {data.CardName} {data.MonthValidity}";
+        
+    }
+
+
+}
+
 
 

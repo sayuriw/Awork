@@ -9,10 +9,13 @@
     <Content Remove="Pages\FetchData.razor" />
     <Content Remove="Shared\NavMenu.razor" />
     <Content Remove="Shared\SurveyPrompt.razor" />
+    <Content Remove="Pages\MyInputNumber.razor" />
+    <Content Remove="Pages\MyInputInt.razor" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Data\WeatherForecast.cs" />
     <Compile Remove="Data\WeatherForecastService.cs" />
+    <Compile Remove="Data\CardService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
