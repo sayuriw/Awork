@@ -1,4 +1,3 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -8,15 +7,72 @@ app {
     position: relative;
     display: flex;
     flex-direction: column;
+    background-color: lightblue;
+    margin: 0;
 }
 
 .main {
-    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
-   
-.content {
-    padding-top: 1.1rem;
+h1 {
+    text-align:center;
 }
+.form {
+    width: 40%;
+    padding: 10px 20px;
+    background: #fefefe;
+    margin: 10px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.inputField {
+    margin: 10px 30px 0 30px
+}
+
+.inputField input {
+        width: 100%;
+        padding: 2px;
+        margin: 8px, 0;
+    }
+.selectors-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin:30px;
+}
+.selector {
+    padding: 5px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.wrapper {
+    text-align:center;
+    margin:10px;
+}
+.wrapper button {
+        width: 100%;
+        color: #fff;
+        font-size: 16px;
+        background-color: #345dac;
+        padding: 8px;
+    }
+
+@media (max-width: 850px) {
+    .form {
+        width: 90%;
+        
+    }
+}
+
+
+
+
+
+
+
 
 .valid.modified:not([type=checkbox]) {
     outline: 1px solid #26b050;
@@ -50,11 +106,6 @@ app {
     }
 
 
-
-@media (min-width: 768px) {
-    app {
-        flex-direction: row;
-    }
 
    
 

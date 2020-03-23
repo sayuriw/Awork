@@ -7,13 +7,13 @@
 <div>
     @if (!string.IsNullOrWhiteSpace(Label))
     {
-        <label for="@Id">@Label</label>
+        <label for="@Id" hidden>@Label</label>
     }
 
-    <select class="@CssClass" id="@Id" @bind="CurrentValueAsString">
-        @if (ShowDefaultOpton)
+    <select class="selector @CssClass" id="@Id" @bind="CurrentValueAsString">
+       @if (ShowDefaultOpton)
         {
-            <option value="0" hidden disabled>- Please Select -</option>
+            <option value="0" hidden disabled>@Label</option>
         }
         @ChildContent
     </select>

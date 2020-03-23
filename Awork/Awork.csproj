@@ -16,6 +16,7 @@
     <Compile Remove="Data\WeatherForecast.cs" />
     <Compile Remove="Data\WeatherForecastService.cs" />
     <Compile Remove="Data\CardService.cs" />
+    <Compile Remove="Data\InputTextBase.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
