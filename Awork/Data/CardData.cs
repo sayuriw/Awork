@@ -8,7 +8,7 @@ namespace Awork.Data
     public class CardData
     {
         [Required]
-        [RegularExpression("^[0-9]{15}(?:[0-9]{1})?$", ErrorMessage ="Please enter a valid Creditcard Number")]
+        [RegularExpression("\\b(?:\\d[ -]*?){13,17}\\b", ErrorMessage = "Please enter a valid Creditcard Number")]
         public string CardNumber { get; set; }
         
         [Required]

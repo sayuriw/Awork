@@ -58,7 +58,6 @@
         }
         else if (typeof(T).IsEnum)
         {
-            // There's no non-generic Enum.TryParse (https://github.com/dotnet/corefx/issues/692)
             try
             {
                 result = (T)Enum.Parse(typeof(T), value);

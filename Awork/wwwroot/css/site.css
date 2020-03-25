@@ -7,7 +7,7 @@ app {
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: lightblue;
+    background-color: #1855e942;
     margin: 0;
 }
 
@@ -16,54 +16,137 @@ app {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position:relative;
 }
 h1 {
     text-align:center;
 }
-.form {
-    width: 40%;
-    padding: 10px 20px;
-    background: #fefefe;
-    margin: 10px;
+.creditcard {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 360px;
+    height: 215px;
+    background-image: linear-gradient(to top, #141442, #1d2369, #233393, #2344bf, #1757ee);
+   
+    box-shadow: -1px 6px 37px -2px rgba(0,0,0,0.73);
+    color: white;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.card-number {
+    border: solid 1px white;
+    text-align: center;
     border-radius: 8px;
+    width: 280px;
+    height: 40px;
+    font-size: 20px;
+    padding-top: 10px;
+    letter-spacing: 2px;
+    margin-top:30px;
+    margin-bottom: 13px;
+}
+.name-area {
+    margin-top:10px;
+}
+.name-label {
+    margin: 0;
+    
+}
+.name {
+    width: 280px;
+    height: 30px;
+    margin: 0;
+    font-size: 22px;
+    font-weight:700;
+}
+
+.validity-area {
+    display: flex;
+    flex-direction: row;
+    margin-top:8px;
+    margin-left:-50px;
+}
+
+.cvv {
+    margin-left: 47px;
+    margin-bottom:0;
+    margin-top: 0;
+}
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 280px;
+    width: 40%;
+    padding: 160px 20px 40px 20px;
+    background: #fefefe;
+    margin: -80px 10px 10px 10px;
+    border-radius: 8px;
+    box-shadow: 0 10px 10px #0002;
     font-size: 16px;
+    z-index: 0;
 }
 .inputField {
     margin: 10px 30px 0 30px
 }
 
 .inputField input {
-        width: 100%;
-        padding: 2px;
+        width: 85%;
+        padding: 5px;
         margin: 8px, 0;
     }
+input:focus {
+    box-shadow: 0 10px 10px #0002;
+}
+.expire-date {
+    margin-top:24px;
+    margin-bottom:0;
+    margin-left: 4%;
+}
 .selectors-area {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin:30px;
+    justify-content: flex-start;
+    margin: 15px;
+    margin-top: 0;
+}
+.month-year {
+    display: flex;
+    
 }
 .selector {
-    padding: 5px;
-    margin-right: 10px;
+    padding: 3px;
     font-size: 16px;
 }
-.wrapper {
-    text-align:center;
-    margin:10px;
+.cvv-input {
+    width: 20%;
+    padding: 5px;
+    margin: 0;
+    margin-top:-24px;
+    margin-left:115px;
 }
-.wrapper button {
-        width: 100%;
+.cvv-input input {
+    width:100%;
+}
+.wrapper {
+    text-align: center;
+    margin: 10px;
+}
+    .wrapper button {
+        width: 80%;
         color: #fff;
         font-size: 16px;
-        background-color: #345dac;
+        background-color: #1757ee;
         padding: 8px;
     }
 
-@media (max-width: 850px) {
+@media (max-width: 800px) {
     .form {
         width: 90%;
-        
     }
 }
 

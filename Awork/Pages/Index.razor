@@ -4,89 +4,90 @@
 
 
 
-<h1>Creditcard Code Challange</h1>
-
-
-
+<h1>Creditcard Code Challenge</h1>
+<div class="creditcard">
+    @if (data.CardNumber == null) { <p class="card-number">#### #### #### ####</p>}
+    else {<p class="card-number">@data.CardNumber</p> }
+<div class="name-area">
+    <p class="name-label">Card Holder</p>
+    @if (data.CardName == null)
+    {<p class="name">John Smith</p>}
+    else
+    { <p class="name">@data.CardName</p>}
+</div>
+<div class="validity-area">
+   
+        @if (data.MonthValidity == 0 && data.YearValidity == 0)
+        {<span>
+                Expire Date: MM / YY
+            </span> }
+        else if (data.MonthValidity == 0 && data.YearValidity != 0)
+        {<span>Expire Date: MM / @data.YearValidity</span>}
+    else if (data.YearValidity == 0 && data.MonthValidity != 0)
+    {<span>Expire Date: @data.MonthValidity / YY</span>}
+else
+{ <span>Expire Date: @data.MonthValidity / @data.YearValidity</span>}
+    @if (data.CvvNumber == null)
+    {<p class="cvv">CVV</p>}
+    else { <span class="cvv">@data.CvvNumber</span>}   
+</div>   
+</div>
 <div class="form">
-    
-
     <EditForm Model="@data" OnValidSubmit="@createData">
         <DataAnnotationsValidator />
-
-
         <p class="inputField">
             <label>
-                Card Number:
-                <MyInput placeholder="XXXX XXXX XXXX XXXX" @bind-Value="data.CardNumber" />
+                Card Number
+                <MyInput placeholder="#### #### #### ####" @bind-Value="data.CardNumber" />
             </label>
             <ValidationMessage For="@(() => data.CardNumber)" />
-
         </p>
         <p class="inputField">
             <label>
-                Card Name:
+                Card Name
                 <MyInput placeholder="John Smith" @bind-Value="data.CardName" />
             </label>
             <ValidationMessage For="@(() => data.CardName)" />
         </p>
+        <p class="expire-date">Expiration Date</p>
         <div class="selectors-area">
-            <div class="selector">
-                <MySelectInput @bind-Value="data.MonthValidity"
-                               ValidationFor="@(() => data.MonthValidity)"
-                               Label="Month">
+            <div class="month-year">
+                <div class="selector">
+                    <MySelectInput @bind-Value="data.MonthValidity"
+                                   ValidationFor="@(() => data.MonthValidity)"
+                                   Label="Month">
+                        <option>Month</option>
+                        @for (int i = 1; i <= 12; i++)
+                        { <option value="@i">@i</option> }
+                    </MySelectInput>
+                </div>
+                <div class="selector">
+                    <MySelectInput @bind-Value="data.YearValidity"
+                                   ValidationFor="@(() => data.YearValidity)"
+                                   Label="Year">
 
-                    <option>Month</option>
-                    @for (int i = 1; i <= 12; i++)
-                    {
-                        <option value="@i">@i</option>
-                    }
-
-                </MySelectInput>
+                        <option>Year</option>
+                        @for (int i = 2020; i <= 2030; i++)
+                        { <option value="@i">@i</option> }
+                    </MySelectInput>
+                </div>
             </div>
-            <div class="selector">
-                <MySelectInput @bind-Value="data.YearValidity"
-                               ValidationFor="@(() => data.YearValidity)"
-                               Label="Year">
-
-                    <option>Year</option>
-                    @for (int i = 2020; i <= 2030; i++)
-                    {
-                        <option value="@i">@i</option>
-                    }
-
-                </MySelectInput>
-            </div>
-            <p>
+            <p class="cvv-input">
                 <label>
-                    Cvv:
-                    <MyInput placeholder="XXXX" @bind-Value="data.CvvNumber" />
+                    CVV
+                    <MyInput placeholder="####" @bind-Value="data.CvvNumber" />
                 </label>
                 <ValidationMessage For="@(() => data.CvvNumber)" />
-
             </p>
         </div>
         <div class="wrapper">
             <button type="submit">Send</button>
         </div>
-
-        <p>@data.CardNumber</p>
-        <p>@data.CardName</p>
-        <p>@data.MonthValidity</p>
-        <p>@data.YearValidity</p>
-        <p>@data.CvvNumber</p>
-
-        <p>
-            <label>@CardInformation</label>
-        </p>
-
     </EditForm>
 </div>
-
-
-
-
-
+<p>
+    <label>@CardInformation</label>
+</p>
 
 @code {
 
